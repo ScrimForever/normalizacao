@@ -1,1 +1,1 @@
-from .normalizacao.normalizar import NormalizarColuna
+import normalizacao.src.normalizacao
