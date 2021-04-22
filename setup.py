@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="normalizacao",
-    version="0.0.1",
+    version="0.0.2",
     author="Thiago Salgado",
     author_email="thiago.salgado.monteiro@gmail.com",
     description="Pacote com normalizações",
