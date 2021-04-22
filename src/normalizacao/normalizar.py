@@ -13,11 +13,11 @@ class NormalizarColuna(object):
         for k, v in self.df.items():
             self.somatorio += v
 
-        if norm_value == 1:
+        if self.normalizacao == 1:
             self.norm_1()
-        elif norm_value == 2:
+        elif self.normalizacao == 2:
             self.norm_2()
-        elif norm_value == 3:
+        elif self.normalizacao == 3:
             self.norm_3()
         else:
             self.norm_4()
@@ -49,3 +49,28 @@ class NormalizarColuna(object):
             print(f'Alternativa: {key}')
             norm = value / math.sqrt(pow(value, 2))
             self.df[key] = norm
+
+class RenomearIndex(object):
+    def __init__(self, dataframe, dicionario):
+        self.df = dataframe
+        self.dicionario = dicionario
+
+    def rename(self):
+        self.df.rename(index=self.dicionario)
+
+
+class NormalizarDataFrame(object):
+
+    def __init__(self, dataframe, norm_value: int):
+
+        self.df = dataframe
+        self.normalizacao = norm_value
+
+    def normalizar(self):
+        colunas = self.df.columns
+        for i in colunas:
+            n = NormalizarColuna(dataframe=self.df[i], norm_value=self.normalizacao)
+
+        return 'Normalização do dataframe realizada com sucesso'
+
+
